@@ -1,6 +1,10 @@
 import { Result } from "postcss";
 import wordBank from "./word-bank.json";
 
+export const LETTER_LENGTH = 5;
+
+const word = getRandomWord();
+
 export function getRandomWord() {
   const randomIndex = Math.floor(Math.random() * wordBank.length);
   return wordBank[randomIndex];
@@ -12,6 +16,7 @@ export enum LetterState {
   Match = "Match",
 }
 
+console.log(word);
 export function computeGuess(
   guess: string,
   answerString: string

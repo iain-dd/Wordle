@@ -39,10 +39,20 @@ describe("computeGuess", () => {
     ]);
   });
 
-  it("works with all miss", () => {
+  it("only does one match when two letters are present", () => {
     expect(computeGuess("solid", "boost")).toEqual([
       LetterState.Present,
       LetterState.Match,
+      LetterState.Miss,
+      LetterState.Miss,
+      LetterState.Miss,
+    ]);
+  });
+
+  it("when 2 letters are present but answer has only 1 of them", () => {
+    expect(computeGuess("allol", "smelt")).toEqual([
+      LetterState.Miss,
+      LetterState.Present,
       LetterState.Miss,
       LetterState.Miss,
       LetterState.Miss,
